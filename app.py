@@ -17,7 +17,7 @@ chatbot = RetrievalQA.from_chain_type(
         temperature=0, model_name="gpt-3.5-turbo", max_tokens=100
     ),
     chain_type="stuff",
-    retriever=FAISS.from_documents(PyPDFLoader("S:\\uber\\mojfaqeng51.pdf").load_and_split(), OpenAIEmbeddings())
+    retriever=FAISS.from_documents(PyPDFLoader("mojfaqeng51.pdf").load_and_split(), OpenAIEmbeddings())
         .as_retriever(search_type="similarity", search_kwargs={"k":1})
 )
 

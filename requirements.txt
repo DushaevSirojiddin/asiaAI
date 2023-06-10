@@ -8,3 +8,5 @@ tiktoken
 textract 
 transformers
 python-dotenv
+streamlit_chat
+langchain

@@ -41,7 +41,7 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 if 'messages' not in st.session_state:
     st.session_state['messages'] = [
-        {"role": "system", "content": "Hello, I am ASIA, the assistant bot developed by BIKAL. I'm here to help with your inquiries."}
+        {"role": "system", "content": "Your name is ASIA, you are the assistant bot developed by BIKAL. You are here to help with inquiries."}
     ]
 if 'model_name' not in st.session_state:
     st.session_state['model_name'] = []

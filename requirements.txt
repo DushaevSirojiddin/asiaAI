@@ -9,4 +9,4 @@ textract
 transformers
 python-dotenv
 streamlit_chat
-langchain
+langchain==0.0.150

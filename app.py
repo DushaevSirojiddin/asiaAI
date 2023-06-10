@@ -31,7 +31,7 @@ prompt = PromptTemplate(
 )
 
 # Setting page title and header
-st.set_page_config(page_title="Asia", page_icon="S:\\uber\\asiaai.jpeg")
+st.set_page_config(page_title="Asia", page_icon=":robot_face:")
 st.markdown("<h1 style='text-align: center;'>Asia - AI assistant for all your legal inquiries. 😬</h1>", unsafe_allow_html=True)
 
 # Initialise session state variables

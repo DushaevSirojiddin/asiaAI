@@ -8,7 +8,7 @@ from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain import PromptTemplate
-os.environ["OPENAI_API_KEY"] = "OPENAI_API_KEY"
+
 dotenv.load_dotenv()
 
 chatbot = RetrievalQA.from_chain_type(

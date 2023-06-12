@@ -14,7 +14,7 @@ dotenv.load_dotenv()
 chatbot = RetrievalQA.from_chain_type(
     llm=ChatOpenAI(
         openai_api_key=os.getenv("OPENAI_API_KEY"),
-        temperature=0, model_name="gpt-3.5-turbo", max_tokens=100
+        temperature=0, model_name="gpt-3.5-turbo", max_tokens=500
     ),
     chain_type="stuff",
     retriever=FAISS.from_documents(PyPDFLoader("mojfaqeng51.pdf").load_and_split(), OpenAIEmbeddings())
@@ -93,9 +93,16 @@ with container:
         submit_button = st.form_submit_button(label='Send')
 
     if submit_button and user_input:
-        output = generate_response(temp+user_input)
-        st.session_state['past'].append(user_input)
-        st.session_state['generated'].append(output)
+        if len(st.session_state['messages']) == 0:
+            output = generate_response(temp + user_input)
+            st.session_state['past'].append(user_input)
+            st.session_state['generated'].append(output)
+        # Translate the user's input from Uzbek to English, get the chatbot's response in English,
+        # and translate the response back to Uzbek
+        else:
+            output = generate_response(user_input)
+            st.session_state['past'].append(user_input)
+            st.session_state['generated'].append(output)
 
 if st.session_state['generated']:
     with response_container:
